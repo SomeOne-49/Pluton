@@ -1,0 +1,561 @@
+.go-up {
+  background-color: $yellow;
+  border: 2px solid white;
+  color: white;
+  width: 40px;
+  height: 40px;
+  font-size: 30px;
+  text-align: center;
+  line-height: 40px;
+  position: fixed;
+  bottom: 30px;
+  right: 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  z-index: 100;
+  opacity: 0;
+  transition: 0.5s;
+}
+
+/*! Start Navbar Section */
+
+nav {
+  background-color: $grey;
+  img {
+    width: 120px;
+  }
+  .navbar-toggler {
+    svg {
+      color: $yellow;
+    }
+  }
+  .navbar-nav a:hover {
+    color: $yellow !important;
+  }
+  @include large {
+    .navbar-nav a {
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        @include xCenter(0);
+        height: 3.5px;
+        width: 0;
+        border-radius: 10px;
+        background-color: $yellow;
+        transition: 0.4s;
+      }
+      &.active::after,
+      &:hover::after {
+        width: 75%;
+      }
+    }
+  }
+}
+
+/*! End Navbar Section */
+
+/*! Start Main Section */
+main {
+  background-image: url(img/slide.jpg);
+  .container {
+    z-index: 10;
+    .carousel .carousel-inner {
+      .carousel-item {
+        .slide-container {	
+          height: 450px;	
+        } 
+        .text {
+          color: #181a1c;
+          h2 {
+            font-size: 33px;
+          }
+          h4 {
+            font-size: 22px;
+          }
+          p {
+            font-size: 19px;
+          }
+        }
+      }
+    }
+  }
+
+  .overlay {
+    @include overlay($yellow, 0.85);
+  }
+}
+
+/*! End Main Section */
+
+/*! Start Services Section */
+
+.services {
+  background-color: $grey;
+  .box {
+    img {
+      width: 150px;
+      padding: 3px;
+      transition: 0.3s;
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+    h4 {
+      color: $yellow;
+    }
+  }
+}
+
+/*! End Services Section */
+
+/*! Start Portfolio Section */
+
+.portfolio {
+  background-color: $yellow;
+  ul li {
+    transition: 0.4s;
+    cursor: pointer;
+    &.active,
+    &:hover {
+      background-color: $grey;
+      color: white;
+    }
+  }
+  .info {
+    background-color: $grey;
+    height: 0;
+    transition: 0.7s;
+    &.show {
+      animation: slide-in-fwd-bottom 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+        both;
+      height: auto;
+      margin-bottom: 30px;
+    }
+    @keyframes slide-in-fwd-bottom {
+      0% {
+        -webkit-transform: translateZ(-1400px) translateY(800px);
+        transform: translateZ(-1400px) translateY(800px);
+        opacity: 0;
+      }
+      100% {
+        -webkit-transform: translateZ(0) translateY(0);
+        transform: translateZ(0) translateY(0);
+        opacity: 1;
+      }
+    }
+    .text {
+      .title {
+        color: $yellow;
+        &::after {
+          content: " ";
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          height: 1px;
+          background-color: $yellow;
+        }
+        svg {
+          color: #ffffff75;
+          font-size: 20px;
+          cursor: pointer;
+          &:hover {
+            color: $yellow;
+          }
+        }
+      }
+      .img-info {
+        p span {
+          color: $yellow;
+          width: 80px;
+        }
+      }
+    }
+  }
+  .box {
+    background-color: $grey;
+    .image {
+      overflow: hidden;
+      cursor: pointer;
+      &::after {
+        content: "\2b";
+        font-family: "Font Awesome 6 Free";
+        font-weight: 900;
+        color: #fff;
+        font-size: 60px;
+        @include centreBoth;
+        top: -25px;
+        transition: 0.2s;
+      }
+      .overlay {
+        @include overlay($grey, 0.85);
+        height: 0;
+        transition: 0.2s;
+      }
+      &:hover {
+        &::after {
+          top: 50%;
+        }
+        .overlay {
+          height: 100%;
+        }
+      }
+    }
+
+    .text {
+      padding: 10px 0 20px;
+      h4,
+      p {
+        margin: 0;
+      }
+      h4 {
+        color: $yellow;
+        font-size: 20px;
+      }
+    }
+  }
+  .bottom {
+    border-top-color: $yellow;
+  }
+}
+
+//TODO : These formats are for a nice removal effect : (For ".box")
+// .col-sm-6.col-md-4.hidden {
+//   animation: scale-out-center 0.5s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+// }
+// @keyframes scale-out-center {
+//   0% {
+//     -webkit-transform: scale(1);
+//     transform: scale(1);
+//     opacity: 1;
+//   }
+//   100% {
+//     -webkit-transform: scale(0);
+//     transform: scale(0);
+//     opacity: 0;
+//   }
+// }
+
+/*! End Portfolio Section */
+
+/*! Start About Us Section */
+.about {
+  background-color: $grey;
+  .box {
+    .title {
+      left: 0;
+      bottom: -101%;
+      color: $grey;
+      background: rgba(254, 206, 26, 0.85);
+      padding-top: 70px;
+      transition: 0.3s;
+    }
+    .text {
+      z-index: 2;
+      h4 {
+        transition: 0.3s;
+        color: $yellow;
+      }
+      ul a {
+        background-color: $yellow;
+        width: 35px;
+        height: 35px;
+        line-height: 35px;
+        transition: 0.3s;
+      }
+    }
+    &:hover {
+      .title {
+        bottom: 0;
+      }
+      .text {
+        h4 {
+          color: $grey;
+        }
+        ul li a {
+          background-color: white;
+          color: $yellow;
+          &:hover {
+            background-color: $grey;
+          }
+        }
+      }
+    }
+  }
+  .about-us {
+    h2 {
+      color: $yellow;
+    }
+    p {
+      line-height: 1.8;
+    }
+  }
+  .prog {
+    h3 {
+      color: $yellow;
+    }
+    .progress {
+      margin: 0 0 30px;
+      height: 43px;
+      padding: 1.5px;
+      .progress-bar {
+        background-color: $yellow;
+        opacity: 0;
+        color: $grey;
+        transition: 1.5s;
+      }
+    }
+  }
+  .hiring {
+    margin-top: 40px;
+    padding: 20px 30px;
+    p {
+      line-height: 1.3;
+    }
+    a {
+      background-color: $yellow;
+
+      &:hover {
+        background-color: $grey;
+        color: #fff;
+      }
+    }
+  }
+}
+.hosting {
+  background-color: $yellow;
+  a {
+    transition: 0.3s;
+    &:hover {
+      background-color: $grey;
+      color: white;
+    }
+  }
+  .bottom {
+    border-top-color: $yellow;
+  }
+}
+/*! End About Us Section */
+
+/*! Start Clients Section */
+.clients {
+  background-color: $grey;
+  .client {
+    .text {
+      color: $grey;
+      background-color: $yellow;
+      margin-bottom: 20px;
+      &::after {
+        content: "";
+        position: absolute;
+        left: 7px;
+        bottom: -10px;
+        border-width: 10px 20px 0 20px;
+        border-style: solid;
+        border-color: $yellow transparent transparent transparent;
+      }
+    }
+    .box {
+      img {
+        width: 50px;
+        height: 50px;
+      }
+      .name {
+        color: $yellow;
+      }
+    }
+  }
+}
+.our-clients {
+  border-top: 5px solid $yellow;
+  background-image: url("img/brand-bg.png");
+  background-size: cover;
+  background-attachment: fixed;
+  .title {
+    margin-bottom: 30px;
+    h3 {
+      color: $yellow;
+    }
+    .btns {
+      svg {
+        width: 35px;
+        height: 35px;
+        background-color: $yellow;
+        cursor: pointer;
+      }
+    }
+  }
+  .imgs {
+    width: fit-content;
+    a {
+      border-radius: 10px;
+      transition: 0.4s;
+      &:hover {
+        background-color: $yellow;
+      }
+    }
+  }
+}
+/*! End Clients Section */
+
+/*! Start Price Section */
+.price {
+  background-color: $yellow;
+  .box {
+    padding-bottom: 20px;
+    border-radius: 20px;
+    h2 {
+      padding: 40px 0;
+      background-color: $grey;
+      color: $yellow;
+    }
+    ul li {
+      color: #747c89;
+      border-bottom: 1px solid;
+      margin: 0 50px;
+      &:first-of-type {
+        font-size: 35px;
+      }
+    }
+    a {
+      background-color: $grey;
+      color: $yellow;
+      padding: 10px 30px;
+      margin-top: 10px;
+      transition: 0.4s;
+      box-shadow: none;
+      &:hover {
+        color: $grey;
+        background-color: $yellow;
+      }
+    }
+  }
+  .contact-us {
+    p {
+      font-size: 20px;
+    }
+    a {
+      padding: 15px 35px;
+      border: 1px solid $grey;
+      margin-top: 10px;
+      &:hover {
+        background-color: $grey;
+        color: white;
+      }
+    }
+  }
+  .newsletters {
+    background-attachment: initial;
+    form {
+      input[type="email"],
+      input[type="submit"] {
+        border: none;
+        outline: none;
+        padding: 15px;
+      }
+      input[type="submit"] {
+        cursor: pointer;
+        background-color: $yellow;
+        color: $grey;
+      }
+    }
+  }
+}
+/*! End Price Section */
+
+/*! Start Contact Section */
+.contact {
+  background-color: $yellow;
+  .map {
+    background-image: url(img/brand-bg.png);
+
+    form {
+      @include small() {
+        width: 50% !important;
+      }
+      @include large() {
+        width: 40% !important;
+      }
+      @include x-large() {
+        width: 35% !important;
+      }
+      border-radius: 7px;	
+      background-color: #fece1a78;
+      padding: 20px;
+      input[type="text"],
+      input[type="email"] {
+        &:focus {
+          box-shadow: 0 0 5px 0 $yellow;
+        }
+      }
+      input[type="text"],
+      input[type="email"],
+      textarea {
+        padding: 10px;
+        border: 1px solid #aaa;
+        border-radius: 4px;
+        outline: none;
+      }
+      input[type="submit"] {
+        outline: none;
+        color: #fece1a;	
+        background: #181a1c;
+        padding: 10px 30px;
+        width: fit-content;
+        cursor: pointer;
+        transition: 0.4s;
+        &:hover {
+          background-color: $yellow;
+          color: white;
+        }
+      }
+    }
+  }
+  .box {
+    address {
+      a {
+        color: $grey;
+        line-height: 1;
+        transition: 0.4s;
+        &:hover {
+          color: white;
+          background-color: $grey;
+        }
+      }
+
+      span {
+        margin-bottom: 10px;
+      }
+    }
+    .social {
+      .paragraph {
+        width: 60%;
+        margin-bottom: 30px;
+        border-bottom: 1px solid $grey;
+        p {
+          font-size: 29px;
+          color: $grey;
+        }
+      }
+      svg {
+        cursor: pointer;
+        transition: .3s;
+        &:hover {
+          color: #fff;
+        }
+      }
+    }
+  }
+}
+/*! End Contact Section */
+
+/*! Start Footer Section */
+footer {
+  background-color: $grey;
+  padding: 10px;
+  .all-rights {
+    color: $yellow !important;
+  }
+}
+/*! End Footer Section */

@@ -1,0 +1,59 @@
+//! Mixin Of Medias :
+
+@mixin x-small() {
+  @media (max-width: 575px) {
+    @content;
+  }
+}
+@mixin small() {
+  @media (min-width: 576px) {
+    @content;
+  }
+}
+@mixin medium() {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+@mixin large() {
+  @media (min-width: 992px) {
+    @content;
+  }
+}
+@mixin x-large() {
+  @media (min-width: 1200px) {
+    @content;
+  }
+}
+
+//! Mixin Of Centering :
+
+@mixin centreBoth {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin xCenter($translateY) {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%) translateY($translateY);
+}
+
+@mixin yCenter($translateX) {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%) translateX($translatyeX);
+}
+
+//! Mixin Of OverLay :
+
+@mixin overlay($color, $opacity) {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba($color, $opacity);
+}
